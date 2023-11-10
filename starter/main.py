@@ -154,6 +154,13 @@ def predict(input: ModelInput):
         "sex",
         "native-country",
     ]
+    # Load saved objects
+    with open(os.path.join(SAVE_PATH, "trained_model.pkl"), "rb") as model_file, \
+            open(os.path.join(SAVE_PATH, "encoder.pkl"), "rb") as encoder_file, \
+            open(os.path.join(SAVE_PATH, "labelizer.pkl"), "rb") as lb_file:
+        model = pickle.load(model_file)
+        encoder = pickle.load(encoder_file)
+        lb = pickle.load(lb_file)
     # Process input data
     X, _, _, _ = process_data(input_df,
                               categorical_features=categorical_features,
@@ -164,8 +171,8 @@ def predict(input: ModelInput):
     # Make the prediction and process it into a human readable format
     pred = model.predict(X)
     pred = lb.inverse_transform(pred)[0]
-
-    return {"The income prediction is": pred}
+    input_df["prediction"] = pred
+    return input_df.to_dict(orient="records")
 
 if __name__ == "__main__":
     uvicorn.run("main:app", reload=True)

@@ -4,6 +4,11 @@ Module for testing machine learning model functionality.
 This module defines fixtures and tests for ensuring the correct behavior of the machine learning model and related functions.
 """
 
+# Add ML module path to sys.path
+import os
+import sys
+sys.path.append(os.path.join(os.path.dirname(__file__), "starter", "ml"))
+
 import logging
 import pytest
 from sklearn.model_selection import train_test_split
@@ -11,11 +16,7 @@ from model import train_model, compute_model_metrics, inference, compute_slices
 from data import process_data
 import pandas as pd
 import joblib
-import os
-import sys
 
-# Add ML module path to sys.path
-sys.path.append(os.path.join(os.path.dirname(__file__), "starter", "ml"))
 
 DATA_PATH = "data/census.csv"
 MODEL_PATH = "model/trained_model.pkl"

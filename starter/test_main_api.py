@@ -1,10 +1,10 @@
-from main import app
 import logging
 import pytest
 from fastapi.testclient import TestClient
 import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__)))
+from main import app
 client = TestClient(app)
 
 
@@ -35,7 +35,7 @@ def test_welcome_message():
         'message'] == "Hello! This is the last project of the Udacity MLops Nanodegree!"
 
 
-def test_model_inference(sample_data):
+def test_model_inference_class1(sample_data):
 
     r = client.post("/predict", json=sample_data)
 
@@ -47,10 +47,10 @@ def test_model_inference(sample_data):
 
 def test_model_inference_class_0(sample_data):
     sample_data["education"] = "HS-grad"
-    sample_data["education_num"] = 1
-    sample_data["occupation"] = "Handlers-cleaners"
+    sample_data["education_num"] = 9
+    sample_data["occupation"] = "Adm-clerical"
     sample_data["sex"] = "Male"
-    sample_data["hours_per_week"] = 35
+    sample_data["hours_per_week"] = 55
 
     r = client.post("/predict/", json=sample_data)
 

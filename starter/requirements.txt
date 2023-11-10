@@ -7,3 +7,4 @@ pytest
 requests
 uvicorn
 gunicorn
+httpx

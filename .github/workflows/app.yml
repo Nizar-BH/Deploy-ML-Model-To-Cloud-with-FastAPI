@@ -45,3 +45,7 @@ jobs:
     - name: Deploy
       run: |
         curl https://api.render.com/deploy/srv-cl785t62eqrc73a0fpn0?key=rnd_YMou2m1be2alsJiAPuQ7Kdgvd1rJ
+    - name: test prediction api
+      run: |
+        cd starter
+        python post_render_api.py

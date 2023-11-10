@@ -13,7 +13,7 @@ from sklearn.model_selection import train_test_split
 DATA_PATH = "data/census.csv"
 MODEL_PATH = "model/trained_model.pkl"
 
-
+## Cosmetic change to trigger CI ##
 @pytest.fixture()
 def data():
     data = pd.read_csv(DATA_PATH)

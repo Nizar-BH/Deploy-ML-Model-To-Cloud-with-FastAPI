@@ -12,7 +12,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), "starter", "ml"))
 import logging
 import pytest
 from sklearn.model_selection import train_test_split
-from model import train_model, compute_model_metrics, inference, compute_slices
+from model import compute_model_metrics, inference, compute_slices
 from data import process_data
 import pandas as pd
 import joblib

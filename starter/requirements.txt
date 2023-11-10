@@ -7,3 +7,4 @@ requests
 uvicorn
 gunicorn
 httpx
+python_version == 3.8.*

@@ -37,7 +37,7 @@ jobs:
     - name: Test with pytest
       run: |
         cd starter
-        pytest test_project.py
+        python -m pytest test_project.py
     - name: Sanity Check
       run: |
         cd starter

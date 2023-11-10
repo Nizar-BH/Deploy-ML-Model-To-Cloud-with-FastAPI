@@ -8,6 +8,8 @@ from typing import Literal
 import pickle
 import os
 import sys
+# Add ML module path to sys.path
+sys.path.append(os.path.join(os.path.dirname(__file__), "starter", "ml"))
 
 import uvicorn
 from fastapi import FastAPI
@@ -15,8 +17,7 @@ from pydantic import BaseModel
 from data import process_data
 import pandas as pd
 
-# Add ML module path to sys.path
-sys.path.append(os.path.join(os.path.dirname(__file__), "starter", "ml"))
+
 
 SAVE_PATH = "./model"
 
